@@ -16,12 +16,15 @@ steps:
     versionSpec: '20.x'
   displayName: 'Install Node.js'
 
+  # Clean install dependencies
 - script: |
-    npm install
-    npm run build
-  displayName: 'Install dependencies & build'
+    npm ci
+  displayName: 'Install dependencies'
 
-  # 4️⃣ Publish the build output as an artifact
+  # Build your React app
+- script: |
+    npm run build
+  displayName: 'Build React app'
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: 'dist'          # 👈 Folder to publish (React's build output)
