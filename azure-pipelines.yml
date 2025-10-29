@@ -19,4 +19,12 @@ steps:
 - script: |
     npm install
     npm run build
-  displayName: 'npm install and build'
+  displayName: 'Install dependencies & build'
+
+  # 4️⃣ Publish the build output as an artifact
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: 'dist'          # 👈 Folder to publish (React's build output)
+    ArtifactName: 'react-build'     # 👈 Name shown in pipeline summary
+    publishLocation: 'Container'    # Store in Azure DevOps
+  displayName: 'Publish build artifacts'
