@@ -18,7 +18,7 @@ steps:
 
   # Clean install dependencies
 - script: |
-    npm ci
+    npm i
   displayName: 'Install dependencies'
 
   # Build your React app
